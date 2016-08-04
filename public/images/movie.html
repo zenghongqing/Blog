@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+        .box > div{ width: 50px; height: 50px; background:#ff6700; color: #fff; margin:10px; float: left; cursor:pointer;}
+        .box > div.on{ background:#ccc; }
+        </style>
+</head>
+<body>
+
+<div class="box">
+        <div class="i1">011</div>
+        <div class="i2">012</div>
+        <div class="i1">013</div>
+        <div class="i2">014</div>
+        <div class="i1">015</div>
+        <div class="i2">016</div>
+        <div class="i1">017</div>
+        <div class="i2">018</div>
+        <div class="i1">019</div>
+        <div class="i2">020</div>
+</div>
+        
+
+<br/><br/><br/><br/>
+
+您已选中的位置有:<span class="text"></span>
+
+<script type='text/javascript' src='http://fkweber.com/demo/jquery.js'></script>
+<script>
+        $(function(){
+           var text = '';
+           $('.box > div').click(function(){
+                           $(this).toggleClass('on');
+                           var str = '';
+                           $('.box > div').each(function(){
+                                   if($(this).hasClass('on')){
+                                           str += $(this).text()+'位,';        
+                                   };
+                           });
+
+                        var newstr=str.substring(0,str.length-1);
+                           $('.text').text(newstr);
+           });
+
+        });
+</script>
+        
+</body>
+</html>
