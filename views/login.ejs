@@ -1,7 +1,17 @@
 <%- include header %>
-<form method="post">
-  用户名：<input type="text" name="name"/><br />
-  密码：  <input type="password" name="password"/><br />
-         <input type="submit" value="登录"/>
+<form class="form-1" method="post">
+<p class="field">
+<input type="text" name="name" placeholder="Username or email">
+<i class="icon-user icon-large"></i>
+</p>
+<p class="field">
+<input type="password" name="password" placeholder="Password">
+<i class="icon-lock icon-large"></i>
+</p>
+<p class="submit">
+<button type="submit" name="submit">
+<i class="icon-arrow-right icon-large">Login</i>
+</button>
+</p>
 </form>
 <%- include footer %>

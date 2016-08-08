@@ -18,31 +18,40 @@ KindEditor.ready(function(K) {
   });
 });
 </script>
+<script type="text/javascript" src="/javascripts/move2.js"></script>
+<script charset="utf-8" src="/javascripts/app.js"></script>
 </head>
 <body>
 
-<header>
-<h1><%= title %></h1>
-</header>
-
-<nav>
-<span><a title="主页" href="/">home</a></span>
-<span><a title="存档" href="/archive">archive</a></span>
-<span><a title="标签" href="/tags">tags</a></span>
-<span><a title="友情链接" href="/links">links</a></span>
-<% if (user) {%>
-	<span><a href="/upload" title="上传">upload</a></span>
-	<span><a title="发表" href="/post">post</a></span>
-	<span><a title="登出" href="/logout">logout</a></span>
-<% } else {%>
-	<span><a title="登录" href="/login">login</a></span>
-	<span><a title="注册" href="/reg">register</a></span>
+<% if (user) { %>
+  <header>
+    <h1><%= user.name %>的<%= title %></h1>
+  </header>
+<% } else { %>
+  <header>
+    <h1>博客<%= title %></h1>
+  </header>
 <% } %>
-<span>
+<nav id='left'>
+  <span><a title="主页" href="/">home</a></span>
+  <span><a title="存档" href="/archive">archive</a></span>
+  <span><a title="标签" href="/tags">tags</a></span>
+    <span id="search"> 
 <form action="/search" method="GET">
-	<input type="text" name="keyword" placeholder="SEARCH" class="search" />
+    <input type="text" name="keyword" placeholder="SEARCH" class = "search"/>
 </form>
 </span>
+</nav>
+<nav id = 'right'>
+  <% if (user) {%>
+  <span><a href="/upload" title="上传">upload</a></span>
+  <span><a title="发表" href="/post">post</a></span>
+  <span><a title="登出" href="/logout">logout</a></span>
+<% } else {%>
+  <span><a title="登录" href="/login">login</a></span>
+  <span><a title="注册" href="/reg">register</a></span>
+<% } %>
+<span><a title="友情链接" href="/links">links</a></span>
 </nav>
 <article>
 <% if(success) { %>

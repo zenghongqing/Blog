@@ -58,6 +58,10 @@ module.exports = function(app){
   var name = req.body.name,
       password = req.body.password,
       password_re = req.body['password-repeat'];
+if(!name || !password){
+	req.flash('error', '请输入用户名和密码!'); 
+    return res.redirect('/reg');//返回注册页
+}
   //检验用户两次输入的密码是否一致
   if (password_re != password) {
     req.flash('error', '两次输入的密码不一致!'); 
